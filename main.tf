@@ -28,7 +28,7 @@ resource "aws_lb" "default" {
 
 module "access_logs" {
   source  = "cloudposse/lb-s3-bucket/aws"
-  version = "0.16.3"
+  version = "0.19.0"
 
   enabled       = var.access_logs_enabled && local.enabled
   force_destroy = var.access_logs_force_destroy
