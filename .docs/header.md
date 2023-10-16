@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](LICENSE) [![Latest Release](https://img.shields.io/github/release/nventive/terraform-aws-lb.svg?style=flat-square)](https://github.com/nventive/terraform-aws-lb/releases/latest)
 
-Terraform module to create an Application, Network or Gateway Load Balancer.
+Terraform module to provision an Application, Network or Gateway Load Balancer.
 
 ---
 
