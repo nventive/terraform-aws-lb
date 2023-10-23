@@ -49,7 +49,7 @@ module "alb" {
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_access_logs"></a> [access\_logs](#module\_access\_logs) | cloudposse/lb-s3-bucket/aws | 0.19.0 |
-| <a name="module_sg"></a> [sg](#module\_sg) | cloudposse/security-group/aws | 2.0.0 |
+| <a name="module_sg"></a> [sg](#module\_sg) | cloudposse/security-group/aws | 2.2.0 |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.25.0 |
 ## Resources
 

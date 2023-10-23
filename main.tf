@@ -1,6 +1,8 @@
 locals {
-  enabled            = module.this.enabled
-  security_group_ids = concat(var.security_group_ids, var.security_group_enabled ? [module.sg.id] : [])
+  enabled                    = module.this.enabled
+  security_group_ids         = concat(var.security_group_ids, var.security_group_enabled ? [module.sg.id] : [])
+  security_group_name_suffix = "ecs-alb-self-ref"
+  security_group_name        = "${module.this.id}-${local.security_group_name_suffix}"
 }
 
 resource "aws_lb" "default" {
@@ -39,12 +41,15 @@ module "access_logs" {
 
 module "sg" {
   source  = "cloudposse/security-group/aws"
-  version = "2.0.0"
+  version = "2.2.0"
 
   enabled = var.security_group_enabled && local.enabled
 
-  vpc_id           = var.vpc_id
-  allow_all_egress = true
+  name                       = local.security_group_name_suffix
+  vpc_id                     = var.vpc_id
+  allow_all_egress           = true
+  create_before_destroy      = true
+  preserve_security_group_id = true
 
   rules = [{
     type        = "ingress"
@@ -58,8 +63,11 @@ module "sg" {
 
   depends_on = [null_resource.sg_vpc_validation]
 
-  context    = module.this.context
-  attributes = ["self"]
+  context = module.this.context
+
+  tags = merge(module.this.tags, {
+    Name = local.security_group_name
+  })
 }
 
 resource "null_resource" "sg_vpc_validation" {
