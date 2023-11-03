@@ -10,7 +10,7 @@ resource "aws_lb" "default" {
   subnets            = var.subnet_ids
   ip_address_type    = var.ip_address_type
   idle_timeout       = var.idle_timeout
-  internal           = false
+  internal           = var.internal
   load_balancer_type = var.load_balancer_type
   enable_http2       = var.enable_http2
   security_groups    = local.security_group_ids
