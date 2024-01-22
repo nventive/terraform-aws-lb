@@ -29,6 +29,7 @@ module "alb" {
   load_balancer_type = "application"
 }
 ```
+
 ## Requirements
 
 | Name | Version |
@@ -38,12 +39,14 @@ module "alb" {
 | <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.0 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | >= 0.7 |
+
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.9 |
 | <a name="provider_null"></a> [null](#provider\_null) | >= 3.0 |
+
 ## Modules
 
 | Name | Source | Version |
@@ -51,12 +54,14 @@ module "alb" {
 | <a name="module_access_logs"></a> [access\_logs](#module\_access\_logs) | cloudposse/lb-s3-bucket/aws | 0.19.0 |
 | <a name="module_sg"></a> [sg](#module\_sg) | cloudposse/security-group/aws | 2.2.0 |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.25.0 |
+
 ## Resources
 
 | Name | Type |
 |------|------|
 | [aws_lb.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb) | resource |
 | [null_resource.sg_vpc_validation](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -92,6 +97,7 @@ module "alb" {
 | <a name="input_tags"></a> [tags](#input\_tags) | Additional tags (e.g. `{'BusinessUnit': 'XYZ'}`).<br>Neither the tag keys nor the tag values will be modified by this module. | `map(string)` | `{}` | no |
 | <a name="input_tenant"></a> [tenant](#input\_tenant) | ID element \_(Rarely used, not included by default)\_. A customer identifier, indicating who this instance of a resource is for | `string` | `null` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of the VPC. Required if `security_group_enabled` is `true`. | `string` | `null` | no |
+
 ## Outputs
 
 | Name | Description |
@@ -108,6 +114,7 @@ module "alb" {
 | <a name="output_id"></a> [id](#output\_id) | The ARN of the load balancer (matches `arn`). |
 | <a name="output_security_group_id"></a> [security\_group\_id](#output\_security\_group\_id) | ID for the default security if `security_group_enabled` is `true`. |
 | <a name="output_zone_id"></a> [zone\_id](#output\_zone\_id) | The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record). |
+
 ## Breaking Changes
 
 Please consult [BREAKING\_CHANGES.md](BREAKING\_CHANGES.md) for more information about version
